@@ -22,14 +22,12 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-
 internal class BalanceServiceImplTest {
     private val expectedUserId = UUID.randomUUID()
 
     private val accountService: AccountService = mock()
     private val nbpClient: NbpClient = mock()
     private val balanceService: BalanceService = BalanceServiceImpl(accountService, nbpClient)
-
 
     @ParameterizedTest()
     @MethodSource("validBalances")
@@ -47,7 +45,7 @@ internal class BalanceServiceImplTest {
     fun `getBalanceInUSD should throw AccountNotFoundException if user does not have bank account`() = runTest {
         whenever(accountService.getUserById(expectedUserId)).thenReturn(null)
 
-        val exception= assertThrows<AccountNotFoundException> {
+        val exception = assertThrows<AccountNotFoundException> {
             balanceService.getBalanceInUSD(expectedUserId)
         }
         assertEquals(String.format("Account for userId=%s not found", expectedUserId), exception.message)
@@ -83,10 +81,16 @@ internal class BalanceServiceImplTest {
         fun invalidNBPResponses(): Stream<Arguments> {
             return Stream.of(
                 Arguments.of(NbpConversionResponse("USD", emptyList()), "NBP API returned no conversion rates"),
-                Arguments.of(NbpConversionResponse("USD", listOf(
-                    NbpRateResponse(BigDecimal.ZERO),
-                    NbpRateResponse(BigDecimal.ZERO)
-                )), "NBP API returned more than one mid conversion rate"),
+                Arguments.of(
+                    NbpConversionResponse(
+                        "USD",
+                        listOf(
+                            NbpRateResponse(BigDecimal.ZERO),
+                            NbpRateResponse(BigDecimal.ZERO)
+                        )
+                    ),
+                    "NBP API returned more than one mid conversion rate"
+                ),
             )
         }
     }

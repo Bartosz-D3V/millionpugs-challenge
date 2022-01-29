@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb
+    url: jdbc:h2:mem:millionpugs
     username: user
     password: password
     driverClassName: org.h2.Driver
@@ -10,5 +10,7 @@ spring:
   h2:
     console:
       enabled: true
+      settings:
+        web-allow-others: true
 nbp:
   url: "https://api.nbp.pl/api/"
