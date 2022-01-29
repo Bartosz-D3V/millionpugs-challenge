@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "nbp.url",
+      "type": "java.lang.String",
+      "description": "URL endpoint for NPB Api."
+    }
+  ]
+}

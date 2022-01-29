@@ -25,24 +25,40 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+
+	// Kotlin
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+	// Kotlinx
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.0")
+
+	// Feign client
+	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.0")
 
 	// In-memory DB
 	runtimeOnly("com.h2database:h2")
 
 	// Test
+	testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+	testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+	testImplementation(kotlin("test"))
+
+	// Additional annotation processor
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
+		freeCompilerArgs = listOf("-Xjsr305=strict", "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi")
 		jvmTarget = "11"
 	}
 }
 
-tasks.withType<Test> {
+tasks.test {
 	useJUnitPlatform()
 }
