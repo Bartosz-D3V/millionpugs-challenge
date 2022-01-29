@@ -10,3 +10,5 @@ spring:
   h2:
     console:
       enabled: true
+nbp:
+  url: "https://api.nbp.pl/api/"

@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "e7370aed-cbbf-485d-ac0e-6535f2254050",
+		"name": "Millionpugs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get account balance in PLN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/balance/users/:id/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"balance",
+						"users",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "a6b045d9-4dc4-4aaa-954d-3edd248096a4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get daily medium USD price",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://api.nbp.pl/api/exchangerates/rates/a/usd/",
+					"protocol": "http",
+					"host": [
+						"api",
+						"nbp",
+						"pl"
+					],
+					"path": [
+						"api",
+						"exchangerates",
+						"rates",
+						"a",
+						"usd",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

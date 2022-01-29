@@ -28,4 +28,8 @@ data class User(
     @OneToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     val account: Account
-)
+) {
+    fun getFullName(): String {
+        return String.format("%s %s", firstName, lastName)
+    }
+}
