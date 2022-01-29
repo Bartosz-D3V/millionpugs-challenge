@@ -1,7 +1,6 @@
 [![CI](https://github.com/Bartosz-D3V/millionpugs-challenge/actions/workflows/build.yml/badge.svg)](https://github.com/Bartosz-D3V/millionpugs-challenge/actions/workflows/build.yml)
 
 # Millionpugs Challenge
-Programming challenge for millionpugs
 
 ## Introduction
 The following project has been created to fulfil requirements for the interview programming task at [MillionPugs](https://www.millionpugs.com/).
