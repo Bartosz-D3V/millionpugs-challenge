@@ -23,7 +23,7 @@ docker build -t millionpugs-challenge .
 docker run -dp 8080:8080 millionpugs-challenge:latest
 ```
 
-_Please note that running application inside container takes time during first build as it has to download Gradle and JDK._
+_Please note that running application inside container takes time during the first build as it has to download Gradle and JDK._
 
 ### Testing
 
@@ -32,7 +32,7 @@ Application database is auto-populated during startup.
 
 To access H2 console open your browser at http://localhost:8080/h2-console
 
-This is in-memory database used just for development purposes. All data will be lost on application stop.
+This is in-memory database used just for development purposes. All data will be lost when application will stop.
 
 | Property     | Value                   |
 |--------------|-------------------------|
