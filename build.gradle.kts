@@ -24,13 +24,13 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.6.3")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.6.3")
 
     // Kotlin
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
 
     // Kotlinx
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
@@ -40,17 +40,17 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:3.1.0")
 
     // In-memory DB
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("com.h2database:h2:2.1.210")
 
     // Test
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
     testImplementation(kotlin("test"))
 
     // Additional annotation processor
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:2.6.3")
 }
 
 tasks.withType<KotlinCompile> {

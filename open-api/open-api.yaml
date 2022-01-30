@@ -1,0 +1,58 @@
+swagger: "2.0"
+info:
+  description: "Programming challenge API implementation for millionpugs."
+  version: "0.0.1"
+  title: "Bank account balance conversion API"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+host: "localhost:8080"
+basePath: "/"
+schemes:
+  - "http"
+paths:
+  /balance/users/{userId}:
+    get:
+      tags:
+        - balance
+      summary: "Find account balance in USD by userId"
+      description: "Returns a account balance in USD by userId"
+      operationId: "getAccountBalanceInUSDByUserId"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "userId"
+          in: path
+          description: "ID of the user"
+          required: true
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/AccountBalanceResponse"
+        "404":
+          description: "User's account not found"
+          schema:
+            $ref: "#/definitions/ErrorInfo"
+        "500":
+          description: "Service unavailable"
+          schema:
+            $ref: "#/definitions/ErrorInfo"
+definitions:
+  AccountBalanceResponse:
+    type: object
+    properties:
+      fullName:
+        type: string
+      balance:
+        type: integer
+        format: int64
+      currency:
+        type: string
+  ErrorInfo:
+    type: object
+    properties:
+      message:
+        type: string
