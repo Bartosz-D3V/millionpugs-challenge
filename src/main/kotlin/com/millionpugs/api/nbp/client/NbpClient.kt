@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 
-@FeignClient(value = "nbp", url ="\${nbp.url}",fallbackFactory= NbpClient.NbpClientFallback::class)
+@FeignClient(value = "nbp", url = "\${nbp.url}", fallbackFactory = NbpClient.NbpClientFallback::class)
 interface NbpClient {
     @RequestMapping(method = [RequestMethod.GET], value = ["/exchangerates/rates/a/USD/"], produces = ["application/json"])
     fun getUSDPrice(): NbpConversionResponse?
@@ -15,9 +15,8 @@ interface NbpClient {
     @Component
     class NbpClientFallback : FallbackFactory<NbpClient> {
         override fun create(cause: Throwable) = object : NbpClient {
-
             override fun getUSDPrice(): NbpConversionResponse? {
-               return null
+                return null
             }
         }
     }
