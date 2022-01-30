@@ -47,6 +47,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    testImplementation("com.tngtech.archunit:archunit-junit5:0.22.0")
     testImplementation(kotlin("test"))
 
     // Additional annotation processor

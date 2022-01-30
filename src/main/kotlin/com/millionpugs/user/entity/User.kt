@@ -16,20 +16,18 @@ import javax.persistence.Table
 data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", columnDefinition = "uuid")
+    @Column(name = "id", columnDefinition = "uuid", nullable = false, length = 36)
     val id: UUID,
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false, length = 200)
     val firstName: String,
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false, length = 200)
     val lastName: String,
 
     @OneToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     val account: Account
 ) {
-    fun getFullName(): String {
-        return String.format("%s %s", firstName, lastName)
-    }
+    fun getFullName() = String.format("%s %s", firstName, lastName)
 }
