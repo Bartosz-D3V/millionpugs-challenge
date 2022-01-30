@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletRequest
 
 @RestControllerAdvice
-class ControllerAdvice : ResponseEntityExceptionHandler() {
+class AdviceController : ResponseEntityExceptionHandler() {
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(AccountNotFoundException::class)

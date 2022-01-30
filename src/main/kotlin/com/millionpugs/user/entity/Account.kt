@@ -14,9 +14,9 @@ import javax.persistence.Table
 data class Account(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", columnDefinition = "uuid")
+    @Column(name = "id", columnDefinition = "uuid", nullable = false, length = 36)
     val id: UUID,
 
-    @Column(name = "balance")
+    @Column(name = "balance", nullable = false, scale = 2, precision = 38)
     val balance: BigDecimal
 )
